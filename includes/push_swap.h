@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:14:47 by revieira          #+#    #+#             */
-/*   Updated: 2023/01/19 19:09:59 by revieira         ###   ########.fr       */
+/*   Updated: 2023/01/20 18:33:26 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,17 @@ void				add_to_stack(t_stack **stack, int data);
 void				free_stack(t_stack **head_stack);
 int					size_stack(t_stack **stack);
 
-void				swap_a(t_stack **head);
-void				swap_b(t_stack **head);
-void				push_a(t_stack **stack_a, t_stack **stack_b);
+//operations
+int					swap_a(t_stack **head, int print);
+int					swap_b(t_stack **head, int print);
+void				swap_ab(t_stack **head_a, t_stack **head_b);
+void				push_a(t_stack **head_a, t_stack **head_b);
+void				push_b(t_stack **head_a, t_stack **head_b);
+int					rotate_a(t_stack **head, int print);
+int					rotate_b(t_stack **head, int print);
+void				rotate_ab(t_stack **head_a, t_stack **head_b);
+int					reverse_rotate_a(t_stack **head, int print);
+int					reverse_rotate_b(t_stack **head, int print);
+void				reverse_rotate_ab(t_stack **head_a, t_stack **head_b);
 
 #endif
