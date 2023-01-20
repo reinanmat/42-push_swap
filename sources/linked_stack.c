@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 11:42:05 by revieira          #+#    #+#             */
-/*   Updated: 2023/01/19 18:40:53 by revieira         ###   ########.fr       */
+/*   Updated: 2023/01/20 18:34:33 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,26 +45,38 @@ void	add_to_stack(t_stack **stack, int data)
 	}
 }
 
-int size_stack(t_stack **stack)
+int	size_stack(t_stack **stack)
 {
 	t_stack	*aux;
 	int		size;
 
 	size = 0;
-    aux = (*stack);
+	aux = (*stack);
 	while (aux)
-    {
-        aux = aux->next;
-        size++;
-    }
-    return (size);
+	{
+		aux = aux->next;
+		size++;
+	}
+	return (size);
 }
+
+/*t_stack	*last_node(t_stack **head)
+{
+	t_stack	*aux;
+
+	aux = (*head);
+	while (aux->next)
+		aux = aux->next;
+	return (aux);
+}*/
 
 void	free_stack(t_stack **head_stack)
 {
 	t_stack	*current;
 	t_stack	*next;
 
+	if (!head_stack)
+		return ;
 	current = *head_stack;
 	while (current)
 	{
@@ -73,5 +85,4 @@ void	free_stack(t_stack **head_stack)
 		current = next;
 	}
 	*head_stack = NULL;
-	free(head_stack);
 }

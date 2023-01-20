@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:05:32 by revieira          #+#    #+#             */
-/*   Updated: 2023/01/19 15:36:45 by revieira         ###   ########.fr       */
+/*   Updated: 2023/01/20 18:19:44 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,8 +40,8 @@ int	matrix_is(char **matrix, int (*f)(char *))
 	while (matrix[i])
 	{
 		if (!f(matrix[i]))
-            return (0);
-        i++;
+			return (0);
+		i++;
 	}
 	return (1);
 }

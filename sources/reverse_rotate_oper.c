@@ -1,57 +1,63 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   rotate_oper.c                                      :+:      :+:    :+:   */
+/*   reverse_rotate_oper.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/01/20 14:10:23 by revieira          #+#    #+#             */
-/*   Updated: 2023/01/20 18:19:30 by revieira         ###   ########.fr       */
+/*   Created: 2023/01/20 17:59:38 by revieira          #+#    #+#             */
+/*   Updated: 2023/01/20 18:24:19 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	rotate_a(t_stack **head, int print)
+int	reverse_rotate_a(t_stack **head, int print)
 {
-	t_stack	*first;
 	t_stack	*last;
+	t_stack	*one_before_last;
 
 	if (size_stack(head) < 2)
 		return (0);
-	first = (*head);
 	last = (*head);
-	while (last->next)
+	one_before_last = NULL;
+	while (last->next != NULL)
+	{
+		one_before_last = last;
 		last = last->next;
-	(*head) = first->next;
-	first->next = NULL;
-	last->next = first;
+	}
+	one_before_last->next = NULL;
+	last->next = (*head);
+	(*head) = last;
 	if (print)
-		ft_printf("ra\n");
+		ft_printf("rra\n");
 	return (1);
 }
 
-int	rotate_b(t_stack **head, int print)
+int	reverse_rotate_b(t_stack **head, int print)
 {
-	t_stack	*first;
 	t_stack	*last;
+	t_stack	*one_before_last;
 
 	if (size_stack(head) < 2)
 		return (0);
-	first = (*head);
 	last = (*head);
-	while (last->next)
+	one_before_last = NULL;
+	while (last->next != NULL)
+	{
+		one_before_last = last;
 		last = last->next;
-	(*head) = first->next;
-	first->next = NULL;
-	last->next = first;
+	}
+	one_before_last->next = NULL;
+	last->next = (*head);
+	(*head) = last;
 	if (print)
-		ft_printf("rb\n");
+		ft_printf("rrb\n");
 	return (1);
 }
 
-void	rotate_ab(t_stack **head_a, t_stack **head_b)
+void	reverse_rotate_ab(t_stack **head_a, t_stack **head_b)
 {
-	if (rotate_a(head_a, 0) || rotate_b(head_b, 0))
-		ft_printf("rr\n");
+	if (reverse_rotate_a(head_a, 0) || reverse_rotate_b(head_b, 0))
+		ft_printf("rrr\n");
 }
