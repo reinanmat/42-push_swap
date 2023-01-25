@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 11:42:05 by revieira          #+#    #+#             */
-/*   Updated: 2023/01/20 18:34:33 by revieira         ###   ########.fr       */
+/*   Updated: 2023/01/25 15:50:49 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -59,16 +59,6 @@ int	size_stack(t_stack **stack)
 	}
 	return (size);
 }
-
-/*t_stack	*last_node(t_stack **head)
-{
-	t_stack	*aux;
-
-	aux = (*head);
-	while (aux->next)
-		aux = aux->next;
-	return (aux);
-}*/
 
 void	free_stack(t_stack **head_stack)
 {

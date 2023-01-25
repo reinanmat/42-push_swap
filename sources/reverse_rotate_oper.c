@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 17:59:38 by revieira          #+#    #+#             */
-/*   Updated: 2023/01/20 18:24:19 by revieira         ###   ########.fr       */
+/*   Updated: 2023/01/25 15:50:06 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,11 @@ int	reverse_rotate_b(t_stack **head, int print)
 
 void	reverse_rotate_ab(t_stack **head_a, t_stack **head_b)
 {
-	if (reverse_rotate_a(head_a, 0) || reverse_rotate_b(head_b, 0))
+	int	returns;
+
+	returns = 0;
+	returns += reverse_rotate_a(head_a, 0);
+	returns += reverse_rotate_b(head_b, 0);
+	if (returns)
 		ft_printf("rrr\n");
 }

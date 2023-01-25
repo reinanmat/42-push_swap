@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:14:47 by revieira          #+#    #+#             */
-/*   Updated: 2023/01/20 18:33:26 by revieira         ###   ########.fr       */
+/*   Updated: 2023/01/25 17:50:11 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,16 +22,26 @@ typedef struct s_stack
 	struct s_stack	*next;
 }					t_stack;
 
-int					*convert_to_int_array(char **char_array);
+//utils
+int					*convert_to_int_array(char **char_array, int size);
+int					matrix_is(char **matrix, int (*f)(char *));
+long long			ft_atoif(const char *str);
+
+//delet in utils
+void				ft_print_stack(t_stack *stack);
+void				test_stack(t_stack **s_a, t_stack **s_b);
 
 //main
 int					*check_and_convert(int argc, char **argv);
 t_stack				**create_stack_a(int *int_array);
 
-//utils
-int					ft_matrixlen(char **matrix);
-int					ft_intlen(int *int_array);
-void				ft_print_stack(t_stack *stack);
+//check_args
+int					repeated_number(char **argv);
+int					check_order(int *int_array, int size);
+int					*check_and_convert(int argc, char **argv);
+
+//algorithm
+void				three_numbers(t_stack **a);
 
 //linked_stack
 t_stack				*new_node(int data);
