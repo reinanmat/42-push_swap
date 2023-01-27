@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:58:57 by revieira          #+#    #+#             */
-/*   Updated: 2023/01/25 15:49:51 by revieira         ###   ########.fr       */
+/*   Updated: 2023/01/27 13:02:35 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ int	matrix_is(char **matrix, int (*f)(char *))
 	return (1);
 }
 
-long long	ft_atoif(const char *str)
+long long	ft_atoill(const char *str)
 {
 	int			sign;
 	long long	result;
@@ -57,7 +57,7 @@ int	*convert_to_int_array(char **char_array, int size)
 	i = -1;
 	while (char_array[++i])
 	{
-		number = ft_atoif(char_array[i]);
+		number = ft_atoill(char_array[i]);
 		if (number > 2147483647 || number < -2147483648)
 		{
 			free(int_array);
@@ -66,7 +66,7 @@ int	*convert_to_int_array(char **char_array, int size)
 		int_array[i] = (int)number;
 	}
 	return (int_array);
-}
+} 
 
 void	test_stack(t_stack **s_a, t_stack **s_b)
 {

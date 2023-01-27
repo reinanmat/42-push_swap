@@ -6,17 +6,17 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:07:50 by revieira          #+#    #+#             */
-/*   Updated: 2023/01/25 17:51:47 by revieira         ###   ########.fr       */
+/*   Updated: 2023/01/27 12:12:27 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void    choice_algorithm(t_stack **a, t_stack **b, int size)
+void	choice_algorithm(t_stack **a, t_stack **b, int size)
 {
-    (*b) = NULL;
-    if (size == 3)
-        three_numbers(a);
+	(*b) = NULL;
+	if (size <= 3)
+		three_numbers(a);
 }
 
 void	create_stacks(int *int_array, int size)
@@ -32,7 +32,7 @@ void	create_stacks(int *int_array, int size)
 		return ;
 	while (++i < size)
 		add_to_stack(&s_a, int_array[i]);
-    choice_algorithm(&s_a, &s_b, size);
+	choice_algorithm(&s_a, &s_b, size);
 	test_stack(&s_a, &s_b);
 	free_stack(&s_a);
 	//free_stack(&s_b);
