@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:21:50 by revieira          #+#    #+#             */
-/*   Updated: 2023/01/27 12:24:49 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/03 19:03:19 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,13 +29,13 @@ int	ft_isSort(t_stack **header)
 	return (1);
 }
 
-void	three_numbers(t_stack **a)
+void	three_numbers(t_data *data)
 {
 	while (!ft_isSort(a))
 	{
 		if ((*a)->data > (*a)->next->data)
-			swap_a(a, 1);
+			exec_operation("sa", data);
 		else
-			reverse_rotate_a(a, 1);
+			exec_operation("rra", data);
 	}
 }

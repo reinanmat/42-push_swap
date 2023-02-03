@@ -6,7 +6,7 @@
 #    By: revieira <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 11:35:54 by revieira          #+#    #+#              #
-#    Updated: 2023/01/25 17:49:30 by revieira         ###   ########.fr        #
+#    Updated: 2023/02/03 18:57:47 by revieira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,8 +18,8 @@ PATH_SRCS = ./sources/
 PATH_OBJS = ./objects/
 
 FILES = main check_args linked_stack utils \
-		push_oper swap_oper rotate_oper reverse_rotate_oper \
-		algorithm
+		push_operations swap_operations rotates_operations \
+		exec_operation algorithm
 
 SRCS = $(addprefix $(PATH_SRCS), $(addsuffix .c, $(FILES) ) )
 OBJS = $(addprefix $(PATH_OBJS), $(addsuffix .o, $(FILES) ) )

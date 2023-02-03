@@ -6,35 +6,34 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:07:50 by revieira          #+#    #+#             */
-/*   Updated: 2023/01/27 12:12:27 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/03 18:50:45 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	choice_algorithm(t_stack **a, t_stack **b, int size)
+void	choice_algorithm(t_data *data)
 {
-	(*b) = NULL;
-	if (size <= 3)
-		three_numbers(a);
+	if (data->size <= 3)
+		three_numbers(&data->a);
 }
 
 void	create_stacks(int *int_array, int size)
 {
-	t_stack	*s_a;
-	t_stack	*s_b;
+	t_data	data;
 	int		i;
 
-	s_a = NULL;
-	s_b = NULL;
-	i = -1;
+	data.a = NULL;
+	data.b = NULL;
+	data.size = size;
 	if (!check_order(int_array, size))
 		return ;
+	i = -1;
 	while (++i < size)
-		add_to_stack(&s_a, int_array[i]);
-	choice_algorithm(&s_a, &s_b, size);
-	test_stack(&s_a, &s_b);
-	free_stack(&s_a);
+		add_to_stack(&data.a, int_array[i]);
+	choice_algorithm(&data);
+	test_stack(&data.a, &data.b);
+	free_stack(&data.a);
 	//free_stack(&s_b);
 }
 
