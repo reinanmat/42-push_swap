@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:14:47 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/03 19:06:17 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/06 19:01:31 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,7 +58,7 @@ void				free_stack(t_stack **head_stack);
 int					size_stack(t_stack **stack);
 
 //operations
-void				exec_operation(char *oper, t_data *data);
+void				exec_operation(char *oper, t_stack **head_a, t_stack **head_b);
 int					push_a(t_stack **head_a, t_stack **head_b);
 int					push_b(t_stack **head_a, t_stack **head_b);
 int					swap_a(t_stack **head);

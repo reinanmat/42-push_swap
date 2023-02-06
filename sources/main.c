@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:07:50 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/03 18:50:45 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/06 19:29:34 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,6 +16,8 @@ void	choice_algorithm(t_data *data)
 {
 	if (data->size <= 3)
 		three_numbers(&data->a);
+	if (data->size == 4 || data->size == 5)
+
 }
 
 void	create_stacks(int *int_array, int size)

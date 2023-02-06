@@ -6,18 +6,18 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:21:50 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/03 19:03:19 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/06 19:07:49 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_isSort(t_stack **header)
+int	ft_isSort(t_stack **stack)
 {
 	t_stack	*aux;
 	int		save_num;
 
-	aux = (*header);
+	aux = (*stack);
 	save_num = aux->data;
 	while (aux->next)
 	{
@@ -29,13 +29,13 @@ int	ft_isSort(t_stack **header)
 	return (1);
 }
 
-void	three_numbers(t_data *data)
+void	three_numbers(t_stack **stack)
 {
-	while (!ft_isSort(a))
+	while (!ft_isSort(stack))
 	{
-		if ((*a)->data > (*a)->next->data)
-			exec_operation("sa", data);
+		if ((*stack)->data > (*stack)->next->data)
+			exec_operation("sa", stack, NULL);
 		else
-			exec_operation("rra", data);
+			exec_operation("rra", stack, NULL);
 	}
 }
