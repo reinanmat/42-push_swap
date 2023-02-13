@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:14:47 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/06 19:01:31 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:37:03 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,20 +18,24 @@
 
 typedef struct s_stack
 {
-	int				data;
+	int				number;
+	int				index;
 	struct s_stack	*next;
 }					t_stack;
 
 typedef struct s_data
 {
+	int				size;
+	int				*numbers;
+	int				*simpl_numbers;
 	t_stack			*a;
 	t_stack			*b;
-	int				size;
 }					t_data;
 
 //utils
 int					*convert_to_int_array(char **char_array, int size);
 int					matrix_is(char **matrix, int (*f)(char *));
+int					*normalize_numbers(int *int_array, int size);
 long long			ft_atoif(const char *str);
 
 //delet in utils
@@ -39,21 +43,23 @@ void				ft_print_stack(t_stack *stack);
 void				test_stack(t_stack **s_a, t_stack **s_b);
 
 //main
-int					*check_and_convert(int argc, char **argv);
 t_stack				**create_stack_a(int *int_array);
 
 //check_args
-int					repeated_number(char **argv);
+int					duplicated_number(char **argv);
 int					check_order(int *int_array, int size);
-int					*check_and_convert(int argc, char **argv);
+int					check_args(int argc, char **argv);
 
 //algorithm
 void				three_numbers(t_stack **header);
+void				four_numbers(t_stack **a, t_stack **b);
+void				five_numbers(t_stack **a, t_stack **b);
+
 
 //linked_stack
-t_stack				*new_node(int data);
+t_stack				*new_node(int value, int index);
 void				add_node_back(t_stack **head_stack, t_stack *new);
-void				add_to_stack(t_stack **stack, int data);
+void				add_to_stack(t_stack **stack, int value, int index);
 void				free_stack(t_stack **head_stack);
 int					size_stack(t_stack **stack);
 

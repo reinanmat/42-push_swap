@@ -6,18 +6,19 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 11:42:05 by revieira          #+#    #+#             */
-/*   Updated: 2023/01/25 15:50:49 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/13 12:58:18 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*new_node(int data)
+t_stack	*new_node(int number, int index)
 {
 	t_stack	*new;
 
 	new = (t_stack *)malloc(sizeof(t_stack));
-	new->data = data;
+	new->number = number;
+	new->index = index;
 	new->next = NULL;
 	return (new);
 }
@@ -32,15 +33,15 @@ void	add_node_back(t_stack **head_stack, t_stack *new)
 	aux->next = new;
 }
 
-void	add_to_stack(t_stack **stack, int data)
+void	add_to_stack(t_stack **stack, int number, int index)
 {
 	t_stack	*new;
 
 	if (!*stack)
-		*stack = new_node(data);
+		*stack = new_node(number, index);
 	else
 	{
-		new = new_node(data);
+		new = new_node(number, index);
 		add_node_back(stack, new);
 	}
 }

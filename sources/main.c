@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:07:50 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/06 19:29:34 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:38:54 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,37 +16,41 @@ void	choice_algorithm(t_data *data)
 {
 	if (data->size <= 3)
 		three_numbers(&data->a);
-	if (data->size == 4 || data->size == 5)
-
+	else if (data->size == 4)
+		four_numbers(&data->a, &data->b);
+	else if (data->size == 5)
+		five_numbers(&data->a, &data->b);
+	ft_print_stack(data->a);
 }
 
-void	create_stacks(int *int_array, int size)
+void	free_data(t_data *data)
 {
-	t_data	data;
-	int		i;
+	free(data->numbers);
+	free(data->simpl_numbers);
+	free_stack(&data->a);
+}
 
-	data.a = NULL;
-	data.b = NULL;
-	data.size = size;
-	if (!check_order(int_array, size))
-		return ;
+void	init_data(int argc, char **argv, t_data *data)
+{
+	int	i;
+
+	data->size = argc - 1;
+	data->numbers = convert_to_int_array(++argv, data->size);
+	data->simpl_numbers = normalize_numbers(data->numbers, data->size);
+	data->b = NULL;
 	i = -1;
-	while (++i < size)
-		add_to_stack(&data.a, int_array[i]);
-	choice_algorithm(&data);
-	test_stack(&data.a, &data.b);
-	free_stack(&data.a);
-	//free_stack(&s_b);
+	while (++i < data->size)
+		add_to_stack(&data->a, data->numbers[i], data->simpl_numbers[i]);
 }
 
 int	main(int argc, char **argv)
 {
-	int	*int_array;
+	t_data data;
 
-	int_array = check_and_convert(argc, argv);
-	if (!int_array)
+	if (!check_args(argc, argv))
 		ft_exit_program("Error", 1);
-	create_stacks(int_array, argc - 1);
-	free(int_array);
+	init_data(argc, argv, &data);
+	choice_algorithm(&data);
+	free_data(&data);
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:58:57 by revieira          #+#    #+#             */
-/*   Updated: 2023/01/27 13:02:35 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/13 17:00:04 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,9 +68,31 @@ int	*convert_to_int_array(char **char_array, int size)
 	return (int_array);
 } 
 
+int	*normalize_numbers(int *int_array, int size)
+{
+	int	*indexs;
+	int	i;
+	int	j;
+
+	i = 0;
+	indexs = (int *)ft_calloc(sizeof(int), size + 1);
+	while (i < size)
+	{
+		j = 0;
+		while (j < size)
+		{
+			if (int_array[i] > int_array[j])
+				indexs[i]++;
+			j++;
+		}
+		i++;
+	}
+	return (indexs);
+}
+
 void	test_stack(t_stack **s_a, t_stack **s_b)
 {
-	ft_printf("Stack A:\n");
+	ft_printf("\nStack A:\n");
 	ft_print_stack(*s_a);
 	ft_printf("Stack B:\n");
 	ft_print_stack(*s_b);
@@ -83,7 +105,7 @@ void	ft_print_stack(t_stack *stack)
 	i = 0;
 	while (stack)
 	{
-		ft_printf("Node %d = [%d]\n", ++i, stack->data);
+		ft_printf("Node %d = [%d]\n", ++i, stack->number);
 		stack = stack->next;
 	}
 	ft_printf("\n");
