@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:14:47 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/13 17:37:03 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:47:58 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,9 @@
 typedef struct s_stack
 {
 	int				number;
-	int				index;
+	int				idx;
+	int				pos;
+	int				tag_pos;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -55,6 +57,8 @@ void				three_numbers(t_stack **header);
 void				four_numbers(t_stack **a, t_stack **b);
 void				five_numbers(t_stack **a, t_stack **b);
 
+void				new_algorithm(t_stack *a, t_stack *b);
+int					middle_stack(t_stack **stack);
 
 //linked_stack
 t_stack				*new_node(int value, int index);
@@ -64,7 +68,7 @@ void				free_stack(t_stack **head_stack);
 int					size_stack(t_stack **stack);
 
 //operations
-void				exec_operation(char *oper, t_stack **head_a, t_stack **head_b);
+void				exec_operation(char *oper, t_stack **a, t_stack **b);
 int					push_a(t_stack **head_a, t_stack **head_b);
 int					push_b(t_stack **head_a, t_stack **head_b);
 int					swap_a(t_stack **head);

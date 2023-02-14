@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:58:57 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/13 17:00:04 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:57:16 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,6 +57,11 @@ int	*convert_to_int_array(char **char_array, int size)
 	i = -1;
 	while (char_array[++i])
 	{
+		if (ft_strlen(char_array[i]) > 11)
+		{
+			free(int_array);
+			return (NULL);
+		}
 		number = ft_atoill(char_array[i]);
 		if (number > 2147483647 || number < -2147483648)
 		{
@@ -85,6 +90,7 @@ int	*normalize_numbers(int *int_array, int size)
 				indexs[i]++;
 			j++;
 		}
+		indexs[i]++;
 		i++;
 	}
 	return (indexs);
@@ -105,7 +111,7 @@ void	ft_print_stack(t_stack *stack)
 	i = 0;
 	while (stack)
 	{
-		ft_printf("Node %d = [%d]\n", ++i, stack->number);
+		ft_printf("Node %d = [%d]	idx is %d, pos is %d and tag_pos is %d\n", ++i, stack->number, stack->idx, stack->pos, stack->tag_pos);
 		stack = stack->next;
 	}
 	ft_printf("\n");

@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:05:32 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/13 13:26:02 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/14 16:04:23 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,14 +54,16 @@ int	check_args(int argc, char **argv)
 {
 	int	*int_array;
 
-	if (argc <= 2)
-		exit(0);
 	++argv;
 	if (!matrix_is(argv, &ft_isnum))
 		return (0);
 	if (!duplicated_number(argv))
 		return (0);
 	int_array = convert_to_int_array(argv, argc - 1);
+	if (!int_array)
+		return (0);
+	/*if (argc <= 2)
+		exit(0);*/
 	if (!check_order(int_array, argc - 1))
 	{
 		free(int_array);

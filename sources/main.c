@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:07:50 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/13 17:38:54 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/14 13:03:43 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,11 +16,12 @@ void	choice_algorithm(t_data *data)
 {
 	if (data->size <= 3)
 		three_numbers(&data->a);
-	else if (data->size == 4)
+	if (data->size > 3)
+		new_algorithm(data->a, data->b);
+	/*else if (data->size == 4)
 		four_numbers(&data->a, &data->b);
 	else if (data->size == 5)
-		five_numbers(&data->a, &data->b);
-	ft_print_stack(data->a);
+		five_numbers(&data->a, &data->b);*/
 }
 
 void	free_data(t_data *data)
