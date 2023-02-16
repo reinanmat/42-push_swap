@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:58:57 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/14 16:57:16 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/16 17:11:59 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -111,7 +111,7 @@ void	ft_print_stack(t_stack *stack)
 	i = 0;
 	while (stack)
 	{
-		ft_printf("Node %d = [%d]	idx is %d, pos is %d and tag_pos is %d\n", ++i, stack->number, stack->idx, stack->pos, stack->tag_pos);
+		ft_printf("Node %d = [%d]	idx is %d, pos is %d and tag_pos is %d\n", ++i, stack->number, stack->idx, stack->curr_pos, stack->target_pos);
 		stack = stack->next;
 	}
 	ft_printf("\n");

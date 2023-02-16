@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/24 12:21:50 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/14 16:55:03 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/16 17:11:18 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,17 +14,17 @@
 
 int	ft_issort(t_stack **stack)
 {
-	t_stack	*aux;
+	t_stack	*tmp;
 	int		save_num;
 
-	aux = (*stack);
-	save_num = aux->number;
-	while (aux->next)
+	tmp = (*stack);
+	save_num = tmp->number;
+	while (tmp->next)
 	{
-		aux = aux->next;
-		if (save_num > aux->number)
+		tmp = tmp->next;
+		if (save_num > tmp->number)
 			return (0);
-		save_num = aux->number;
+		save_num = tmp->number;
 	}
 	return (1);
 }

@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:04:38 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/13 19:45:27 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/16 17:06:45 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,17 +56,17 @@ int	rotate_operations(char *oper, t_stack **s_a, t_stack **s_b)
 	return(func_ret);
 }
 
-void	exec_operation(char *oper, t_stack **a, t_stack **b)
+void	exec_operation(char *oper, t_stack **s_a, t_stack **s_b)
 {
 	int	func_ret;
 
 	func_ret = 0;
 	if (*oper == 's')
-		func_ret = swap_operations(oper, a, b);
+		func_ret = swap_operations(oper, s_a, s_b);
 	else if (*oper == 'p')
-		func_ret = push_operations(oper, a, b);
+		func_ret = push_operations(oper, s_a, s_b);
 	else if (*oper == 'r')
-		func_ret = rotate_operations(oper, a, b);
+		func_ret = rotate_operations(oper, s_a, s_b);
 	if (func_ret)
 		ft_printf("%s\n", oper);
 }
