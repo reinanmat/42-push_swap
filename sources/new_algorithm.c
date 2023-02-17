@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 18:27:15 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/17 12:22:47 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/17 18:46:08 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,33 +26,49 @@ int	has_smaller_idx_on_the_stack(t_stack **stack, int idx)
 	return (0);
 }
 
-void	new_algorithm(t_stack *a, t_stack *b)
+int	find_stack(t_stack **stack, int idx)
+{
+	t_stack *tmp;
+
+	tmp = *stack;
+	while(tmp)
+	{
+		if (tmp->idx == idx)
+			return (tmp->curr_pos);
+		tmp = tmp->next;
+	}
+	return (-1);
+}
+
+void	new_algorithm(t_stack **s_a, t_stack **s_b)
 {
 	int	middle_idx;
 	int	cost;
 
-	middle_idx = size_stack(&a) / 2;
-	while (size_stack(&a) != 3)
+	middle_idx = size_stack(s_a) / 2;
+	while (size_stack(s_a) != 3)
 	{
-		if (a->idx >= middle_idx && has_smaller_idx_on_the_stack(&a, middle_idx))
-			exec_operation("ra", &a, NULL);
+		if ((*s_a)->idx >= middle_idx && has_smaller_idx_on_the_stack(s_a, middle_idx))
+			exec_operation("ra", s_a, NULL);
 		else
-			exec_operation("pb", &a, &b);	
+			exec_operation("pb", s_a, s_b);	
 	}
-	three_numbers(&a);
-	while (size_stack(&b))
+	three_numbers(s_a);
+	while (size_stack(s_b))
 	{
-		calculate_target_pos(&a, &b);
-		cost = get_small_cust(&b);
-//		ft_print_stack(a);
-//		ft_print_stack(b);
-//		ft_printf("%d\n", cost);
-		exec_small_cost(&a, &b, cost);
+		calculate_target_pos(s_a, s_b);
+		calculate_cost(s_a, s_b);
+		cost = get_small_cust(s_b);
+		exec_small_cost(s_a, s_b, cost);
 	}
 //	ft_print_stack(a);
 //	ft_print_stack(b);
-	while (a->idx != 1)
-		exec_operation("ra", &a, NULL);
+	if (find_stack(s_a, 1) >= size_stack(s_a))	
+		while ((*s_a)->idx != 1)
+			exec_operation("ra", s_a, NULL);
+	else
+		while ((*s_a)->idx != 1)
+			exec_operation("rra", s_a, NULL);
 	/*
 	update_pos_in_stack(a);
 	update_pos_in_stack(b);
@@ -68,6 +84,4 @@ void	new_algorithm(t_stack *a, t_stack *b)
 	  update_pos_in_stack(a);
 	  update_pos_in_stack(b);
 	  calculate_target_pos(&a, &b);*/
-//	ft_print_stack(a);
-//	ft_print_stack(b);
 }

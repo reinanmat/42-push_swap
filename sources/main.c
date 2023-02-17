@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:07:50 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/16 17:08:48 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/17 13:20:27 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@ void	choice_algorithm(t_data *data)
 	if (data->size <= 3)
 		three_numbers(&data->s_a);
 	if (data->size > 3)
-		new_algorithm(data->s_a, data->s_b);
+		new_algorithm(&data->s_a, &data->s_b);
 	/*else if (data->size == 4)
 		four_numbers(&data->a, &data->b);
 	else if (data->size == 5)
@@ -38,6 +38,7 @@ void	init_data(int argc, char **argv, t_data *data)
 	data->size = argc - 1;
 	data->numbers = convert_to_int_array(++argv, data->size);
 	data->simpl_numbers = normalize_numbers(data->numbers, data->size);
+	data->s_a = NULL;
 	data->s_b = NULL;
 	i = -1;
 	while (++i < data->size)
