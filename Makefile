@@ -6,7 +6,7 @@
 #    By: revieira <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 11:35:54 by revieira          #+#    #+#              #
-#    Updated: 2023/02/16 17:21:59 by revieira         ###   ########.fr        #
+#    Updated: 2023/02/17 12:27:23 by revieira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -20,7 +20,7 @@ PATH_OBJS  = ./objects/
 FILES = main check_args linked_stack utils \
 		push_operations swap_operations rotates_operations \
 		exec_operation algorithm new_algorithm calculate_cost \
-		pos target_pos
+		position
 
 SRCS = $(addprefix $(PATH_SRCS), $(addsuffix .c, $(FILES) ) )
 OBJS = $(addprefix $(PATH_OBJS), $(addsuffix .o, $(FILES) ) )

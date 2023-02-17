@@ -6,11 +6,41 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 16:14:39 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/16 18:18:53 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/17 12:25:32 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	middle_stack(t_stack **stack)
+{
+	t_stack	*tmp;
+	int		i;
+	int 	middle;
+
+	i = 0;
+	tmp = (*stack);
+	middle = size_stack(stack) / 2;
+	while (i < middle)
+	{
+		tmp = tmp->next;
+		i++;
+	}
+	return (tmp->number);
+}
+
+void	get_pos(t_stack *stack)
+{
+	int		pos;
+
+	pos = 0;
+	while (stack)
+	{
+		stack->curr_pos = pos;
+		stack = stack->next;
+		pos++;
+	}
+}
 
 int	find_high_idx(t_stack **stack)
 {
@@ -59,9 +89,12 @@ void	calculate_target_pos(t_stack **s_a, t_stack **s_b)
 		appr_high = get_approximate_highest_idx(s_a, tmp_b->idx);
 		while (tmp_a->idx != appr_high)
 			tmp_a = tmp_a->next;
-		tmp_b->target_pos = tmp_a->curr_pos;
-		/*if (size_stack(s_b) == 1 && find_high_idx(s_a) < tmp_b->idx)
-			tmp_b->target_pos++;*/
+		if (appr_high > tmp_b->idx)
+			tmp_b->target_pos = tmp_a->curr_pos;
+		else if (tmp_a->curr_pos + 1 >= size_stack(s_a))
+			tmp_b->target_pos = 0;
+		else
+			tmp_b->target_pos = tmp_a->curr_pos + 1;
 		tmp_b = tmp_b->next;
 	}
 }

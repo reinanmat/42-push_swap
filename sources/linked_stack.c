@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 11:42:05 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/14 17:31:07 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/17 11:31:29 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,8 +19,8 @@ t_stack	*new_node(int number, int index)
 	new = (t_stack *)malloc(sizeof(t_stack));
 	new->number = number;
 	new->idx = index;
-	new->pos = -1;
-	new->tag_pos = -1;
+	new->curr_pos = -1;
+	new->target_pos = -1;
 	new->next = NULL;
 	return (new);
 }

@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 18:27:15 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/16 17:44:42 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/17 12:22:47 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,13 +44,13 @@ void	new_algorithm(t_stack *a, t_stack *b)
 	{
 		calculate_target_pos(&a, &b);
 		cost = get_small_cust(&b);
-		ft_print_stack(a);
-		ft_print_stack(b);
-		ft_printf("%d\n", cost);
+//		ft_print_stack(a);
+//		ft_print_stack(b);
+//		ft_printf("%d\n", cost);
 		exec_small_cost(&a, &b, cost);
 	}
-	ft_print_stack(a);
-	ft_print_stack(b);
+//	ft_print_stack(a);
+//	ft_print_stack(b);
 	while (a->idx != 1)
 		exec_operation("ra", &a, NULL);
 	/*
@@ -68,6 +68,6 @@ void	new_algorithm(t_stack *a, t_stack *b)
 	  update_pos_in_stack(a);
 	  update_pos_in_stack(b);
 	  calculate_target_pos(&a, &b);*/
-	ft_print_stack(a);
-	ft_print_stack(b);
+//	ft_print_stack(a);
+//	ft_print_stack(b);
 }
