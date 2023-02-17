@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:14:47 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/16 17:03:37 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/17 16:06:33 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,8 @@ typedef struct s_stack
 	int				idx;
 	int				curr_pos;
 	int				target_pos;
+	int				cost_a;
+	int				cost_b;
 	struct s_stack	*next;
 }					t_stack;
 
@@ -57,8 +59,9 @@ void				three_numbers(t_stack **stack);
 void				four_numbers(t_stack **s_a, t_stack **s_b);
 void				five_numbers(t_stack **s_a, t_stack **s_b);
 
-void				new_algorithm(t_stack *a, t_stack *b);
+void				new_algorithm(t_stack **s_a, t_stack **s_b);
 int					middle_stack(t_stack **stack);
+void				calculate_cost(t_stack **s_a, t_stack **s_b);
 
 //linked_stack
 t_stack				*new_node(int value, int index);
