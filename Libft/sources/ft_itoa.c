@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/13 13:41:59 by coder             #+#    #+#             */
-/*   Updated: 2023/01/02 10:46:28 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:50:57 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,13 +25,6 @@ static int	ft_intlen(int n)
 		count++;
 	}
 	return (count);
-}
-
-static int	ft_abs(int n)
-{
-	if (n < 0)
-		return (-n);
-	return (n);
 }
 
 char	*ft_itoa(int n)
