@@ -6,7 +6,7 @@
 #    By: revieira <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 11:35:54 by revieira          #+#    #+#              #
-#    Updated: 2023/02/24 12:46:16 by revieira         ###   ########.fr        #
+#    Updated: 2023/02/24 16:10:09 by revieira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -23,10 +23,9 @@ PATH_BONUS_OBJS  = ./Push_swap/Bonus/objects/
 
 PATH_LIBFT = ./Libft/
 
-FILES = main check_args linked_stack utils \
-		push_operations swap_operations rotates_operations \
-		exec_operation algorithm new_algorithm calculate_cost \
-		position cost
+FILES = calculate_cost check_args exec_operation exec_small_cost get_positions \
+		main push_operations rotates_operations swap_operations sort sort_big  \
+		stack_utils utils
 
 BONUS_FILES = main_bonus check_args_bonus utils_bonus
 
