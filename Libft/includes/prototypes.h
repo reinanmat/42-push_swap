@@ -6,7 +6,7 @@
 /*   By: revieira <revieira@student.42.fr>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/02 10:35:45 by revieira          #+#    #+#             */
-/*   Updated: 2023/01/19 15:37:25 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:50:23 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,5 +93,6 @@ int		ft_matrix_is(char **matrix, int (*f)(int));
 void	ft_free_matrix(void **matrix, int size);
 void	ft_quadra_free(void *one, void *two, void *three, void *four);
 int		ft_isnum(char *str);
+int		ft_abs(int num);
 
 #endif

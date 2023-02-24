@@ -6,7 +6,7 @@
 #    By: revieira <revieira@student.42sp.org.br>    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/09/01 18:11:10 by revieira          #+#    #+#              #
-#    Updated: 2023/01/19 15:38:07 by revieira         ###   ########.fr        #
+#    Updated: 2023/02/24 17:50:05 by revieira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,6 +29,7 @@ FILES 		= 	ft_atoi ft_isalnum ft_isalpha ft_isascii \
 				ft_lstsize ft_lstlast ft_lstadd_back ft_lstdelone \
 				ft_lstclear ft_lstiter ft_lstmap get_next_line \
 				get_next_line_utils ft_printf ft_printf_utils \
+				ft_abs
 
 ADD_FILES 	=	ft_exit_program ft_str_is ft_matrix_is ft_free_matrix \
 				ft_quadra_free ft_isnum
