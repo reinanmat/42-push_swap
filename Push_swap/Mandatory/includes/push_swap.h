@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:14:47 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/17 16:06:33 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/24 16:14:07 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,57 +30,65 @@ typedef struct s_stack
 typedef struct s_data
 {
 	int				size;
-	int				*numbers;
-	int				*simpl_numbers;
 	t_stack			*s_a;
 	t_stack			*s_b;
 }					t_data;
 
 //utils
-int					*convert_to_int_array(char **char_array, int size);
+int					ft_abs(int num);
 int					matrix_is(char **matrix, int (*f)(char *));
+long long			ft_atoif(char *str);
+int					*convert_to_int_array(char **matrix, int size);
 int					*normalize_numbers(int *int_array, int size);
-long long			ft_atoif(const char *str);
+
+//stack_utils
+t_stack				*new_node(int number, int idx);
+void				add_node_back(t_stack **head_stack, t_stack *new);
+void				add_to_stack(t_stack **head_stack, int number, int idx);
+int					size_stack(t_stack **stack);
+void				free_stack(t_stack **head_stack);
 
 //delet in utils
 void				ft_print_stack(t_stack *stack);
 void				test_stack(t_stack **s_a, t_stack **s_b);
 
 //main
-t_stack				**create_stack_a(int *int_array);
+void				init_data(t_data *data, int *int_array, int size);
+void				sort(t_data *data);
 
 //check_args
 int					duplicated_number(char **argv);
 int					check_order(int *int_array, int size);
-int					check_args(int argc, char **argv);
+int					*check_args(int argc, char **argv);
 
-//algorithm
-void				three_numbers(t_stack **stack);
-void				four_numbers(t_stack **s_a, t_stack **s_b);
-void				five_numbers(t_stack **s_a, t_stack **s_b);
+//sort
+void				sort_three_numbers(t_stack **s_a);
+void				sort_four_numbers(t_stack **s_a, t_stack **s_b);
+void				sort_five_numbers(t_stack **s_a, t_stack **s_b);
+void				put_value_in_top(t_stack **s_a, int index, int pos);
+int					find_index(t_stack **stack, int wanted);
+int					ft_issort(t_stack **stack);
 
-void				new_algorithm(t_stack **s_a, t_stack **s_b);
+//sort_big
+int					find_stack(t_stack **stack, int idx);
+void				send_to_stack_b(t_stack **s_a, t_stack **s_b);
+void				exec_rotate_or_reverse_rotate(t_stack **s_a);
+void				sort_all(t_stack **s_a, t_stack **s_b);
+
+//get_positions
 int					middle_stack(t_stack **stack);
-void				calculate_cost(t_stack **s_a, t_stack **s_b);
-
-//linked_stack
-t_stack				*new_node(int value, int index);
-void				add_node_back(t_stack **head_stack, t_stack *new);
-void				add_to_stack(t_stack **head_stack, int value, int index);
-void				free_stack(t_stack **head_stack);
-int					size_stack(t_stack **stack);
-
-//pos
-void				get_pos(t_stack	*stack);
-int					middle_stack(t_stack **stack);
-
-//new_algorith,
+void				set_pos(t_stack *stack);
+int					find_high_idx(t_stack **stack);
+int					get_approximate_highest_idx(t_stack **stack, int idx);
 void				calculate_target_pos(t_stack **s_a, t_stack **s_b);
+
+//exec_small_cost
+void				exec_small_cost(t_stack **s_a, t_stack **s_b, int idx);
 
 //calculate_cost
 int					ft_abs(int num);
-int					get_small_cust(t_stack	**s_b);
-void				exec_small_cost(t_stack	**s_a, t_stack **s_b, int idx);
+void				calculate_cost(t_stack **s_a, t_stack **s_b);
+int					get_small_cost(t_stack	**s_b);
 
 //operations
 void				exec_operation(char *oper, t_stack **s_a, t_stack **s_b);
