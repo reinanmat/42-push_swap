@@ -6,13 +6,13 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:05:32 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/14 16:04:23 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/24 18:33:38 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	duplicated_number(char **argv)
+int	has_duplicated_number(char **argv)
 {
 	int	i;
 	int	j;
@@ -50,25 +50,22 @@ int	check_order(int *int_array, int size)
 	return (0);
 }
 
-int	check_args(int argc, char **argv)
+int	*check_args(int argc, char **argv)
 {
 	int	*int_array;
 
 	++argv;
 	if (!matrix_is(argv, &ft_isnum))
 		return (0);
-	if (!duplicated_number(argv))
+	if (!has_duplicated_number(argv))
 		return (0);
 	int_array = convert_to_int_array(argv, argc - 1);
 	if (!int_array)
 		return (0);
-	/*if (argc <= 2)
-		exit(0);*/
 	if (!check_order(int_array, argc - 1))
 	{
 		free(int_array);
 		exit(0);
 	}
-	free(int_array);
-	return (1);
+	return (int_array);
 }

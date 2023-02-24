@@ -1,24 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   linked_stack.c                                     :+:      :+:    :+:   */
+/*   stack_utils.c                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 11:42:05 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/17 13:11:37 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/24 15:18:21 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-t_stack	*new_node(int number, int index)
+t_stack	*new_node(int number, int idx)
 {
 	t_stack	*new;
 
 	new = (t_stack *)malloc(sizeof(t_stack));
 	new->number = number;
-	new->idx = index;
+	new->idx = idx;
 	new->curr_pos = -1;
 	new->target_pos = -1;
 	new->next = NULL;
@@ -35,16 +35,16 @@ void	add_node_back(t_stack **head_stack, t_stack *new)
 	aux->next = new;
 }
 
-void	add_to_stack(t_stack **stack, int number, int index)
+void	add_to_stack(t_stack **head_stack, int number, int idx)
 {
 	t_stack	*new;
 
-	if (!*stack)
-		*stack = new_node(number, index);
+	if (!*head_stack)
+		*head_stack = new_node(number, idx);
 	else
 	{
-		new = new_node(number, index);
-		add_node_back(stack, new);
+		new = new_node(number, idx);
+		add_node_back(head_stack, new);
 	}
 }
 

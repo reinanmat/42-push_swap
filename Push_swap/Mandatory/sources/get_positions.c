@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   position.c                                         :+:      :+:    :+:   */
+/*   get_positions.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 16:14:39 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/23 18:08:00 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:38:56 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ int	middle_stack(t_stack **stack)
 {
 	t_stack	*tmp;
 	int		i;
-	int 	middle;
+	int		middle;
 
 	i = 0;
 	tmp = (*stack);
@@ -29,7 +29,7 @@ int	middle_stack(t_stack **stack)
 	return (tmp->number);
 }
 
-void	get_pos(t_stack *stack)
+void	set_pos(t_stack *stack)
 {
 	int		pos;
 
@@ -44,7 +44,7 @@ void	get_pos(t_stack *stack)
 
 int	find_high_idx(t_stack **stack)
 {
-	t_stack *tmp;
+	t_stack	*tmp;
 	int		high;
 
 	tmp = *stack;
@@ -65,7 +65,7 @@ int	get_approximate_highest_idx(t_stack **stack, int idx)
 
 	close_high = find_high_idx(stack);
 	tmp = *stack;
-	while(tmp)
+	while (tmp)
 	{
 		if (tmp->idx < close_high && idx < tmp->idx)
 			close_high = tmp->idx;
@@ -80,8 +80,8 @@ void	calculate_target_pos(t_stack **s_a, t_stack **s_b)
 	t_stack	*tmp_b;
 	int		appr_high;
 
-	get_pos(*s_a);
-	get_pos(*s_b);
+	set_pos(*s_a);
+	set_pos(*s_b);
 	tmp_b = (*s_b);
 	while (tmp_b)
 	{
@@ -98,4 +98,3 @@ void	calculate_target_pos(t_stack **s_a, t_stack **s_b)
 		tmp_b = tmp_b->next;
 	}
 }
-

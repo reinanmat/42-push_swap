@@ -6,53 +6,52 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:07:50 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/24 11:58:42 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:38:09 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	choice_algorithm(t_data *data)
+void	sort(t_data *data)
 {
 	if (data->size <= 3)
-		three_numbers(&data->s_a);
-	if (data->size > 3)
-		new_algorithm(&data->s_a, &data->s_b);
-	/*else if (data->size == 4)
-		four_numbers(&data->a, &data->b);
+		sort_three_numbers(&data->s_a);
+	else if (data->size == 4)
+		sort_four_numbers(&data->s_a, &data->s_b);
 	else if (data->size == 5)
-		five_numbers(&data->a, &data->b);*/
+		sort_five_numbers(&data->s_a, &data->s_b);
+	else
+		sort_all(&data->s_a, &data->s_b);
 }
 
-void	free_data(t_data *data)
-{
-	free(data->numbers);
-	free(data->simpl_numbers);
-	free_stack(&data->s_a);
-}
-
-void	init_data(int argc, char **argv, t_data *data)
+void	init_data(t_data *data, int *int_array, int size)
 {
 	int	i;
+	int	*norm_numbers;
 
-	data->size = argc - 1;
-	data->numbers = convert_to_int_array(++argv, data->size);
-	data->simpl_numbers = normalize_numbers(data->numbers, data->size);
+	i = -1;
+	data->size = size;
 	data->s_a = NULL;
 	data->s_b = NULL;
-	i = -1;
+	norm_numbers = normalize_numbers(int_array, data->size);
 	while (++i < data->size)
-		add_to_stack(&data->s_a, data->numbers[i], data->simpl_numbers[i]);
+		add_to_stack(&data->s_a, int_array[i], norm_numbers[i]);
+	set_pos(data->s_a);
+	set_pos(data->s_b);
+	free(int_array);
+	free(norm_numbers);
 }
 
 int	main(int argc, char **argv)
 {
-	t_data data;
+	t_data	data;
+	int		*int_array;
 
-	if (!check_args(argc, argv))
+	int_array = check_args(argc, argv);
+	if (!int_array)
 		ft_exit_program("Error", 1);
-	init_data(argc, argv, &data);
-	choice_algorithm(&data);
-	free_data(&data);
+	init_data(&data, int_array, argc - 1);
+	sort(&data);
+	free_stack(&data.s_a);
 	return (0);
 }

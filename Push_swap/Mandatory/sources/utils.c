@@ -6,11 +6,28 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:58:57 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/17 16:44:11 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:50:28 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	ft_issort(t_stack **stack)
+{
+	t_stack	*tmp;
+	int		save_num;
+
+	tmp = (*stack);
+	save_num = tmp->number;
+	while (tmp->next)
+	{
+		tmp = tmp->next;
+		if (save_num > tmp->number)
+			return (0);
+		save_num = tmp->number;
+	}
+	return (1);
+}
 
 int	matrix_is(char **matrix, int (*f)(char *))
 {
@@ -26,7 +43,7 @@ int	matrix_is(char **matrix, int (*f)(char *))
 	return (1);
 }
 
-long long	ft_atoill(const char *str)
+long long	ft_atoill(char *str)
 {
 	int			sign;
 	long long	result;
@@ -47,7 +64,7 @@ long long	ft_atoill(const char *str)
 	return (result * sign);
 }
 
-int	*convert_to_int_array(char **char_array, int size)
+int	*convert_to_int_array(char **matrix, int size)
 {
 	int			i;
 	int			*int_array;
@@ -55,14 +72,14 @@ int	*convert_to_int_array(char **char_array, int size)
 
 	int_array = (int *)ft_calloc(sizeof(int), size + 1);
 	i = -1;
-	while (char_array[++i])
+	while (matrix[++i])
 	{
-		if (ft_strlen(char_array[i]) > 11)
+		if (ft_strlen(matrix[i]) > 11)
 		{
 			free(int_array);
 			return (NULL);
 		}
-		number = ft_atoill(char_array[i]);
+		number = ft_atoill(matrix[i]);
 		if (number > 2147483647 || number < -2147483648)
 		{
 			free(int_array);
@@ -71,7 +88,7 @@ int	*convert_to_int_array(char **char_array, int size)
 		int_array[i] = (int)number;
 	}
 	return (int_array);
-} 
+}
 
 int	*normalize_numbers(int *int_array, int size)
 {
@@ -94,25 +111,4 @@ int	*normalize_numbers(int *int_array, int size)
 		i++;
 	}
 	return (indexs);
-}
-
-void	test_stack(t_stack **s_a, t_stack **s_b)
-{
-	ft_printf("\nStack A:\n");
-	ft_print_stack(*s_a);
-	ft_printf("Stack B:\n");
-	ft_print_stack(*s_b);
-}
-
-void	ft_print_stack(t_stack *stack)
-{
-	int	i;
-
-	i = 0;
-	while (stack)
-	{
-		ft_printf("Node %d = [%d]	idx is %d, pos is %d and tag_pos is %d, cost_a is %d, cost_b is %d\n", ++i, stack->number, stack->idx, stack->curr_pos, stack->target_pos, stack->cost_a, stack->cost_b);
-		stack = stack->next;
-	}
-	ft_printf("\n");
 }

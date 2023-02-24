@@ -6,15 +6,15 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/27 13:04:38 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/17 17:25:17 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/24 17:37:51 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	swap_operations(char *oper, t_stack **s_a, t_stack **s_b)
+static int	swap_operations(char *oper, t_stack **s_a, t_stack **s_b)
 {
-	int func_ret;
+	int	func_ret;
 
 	func_ret = 0;
 	if (!ft_strcmp(oper, "sa"))
@@ -29,7 +29,7 @@ int	swap_operations(char *oper, t_stack **s_a, t_stack **s_b)
 	return (func_ret);
 }
 
-int	push_operations(char *oper, t_stack **s_a, t_stack **s_b)
+static int	push_operations(char *oper, t_stack **s_a, t_stack **s_b)
 {
 	int	func_ret;
 
@@ -41,9 +41,9 @@ int	push_operations(char *oper, t_stack **s_a, t_stack **s_b)
 	return (func_ret);
 }
 
-int	rotate_operations(char *oper, t_stack **s_a, t_stack **s_b)
+static int	rotate_operations(char *oper, t_stack **s_a, t_stack **s_b)
 {
-	int func_ret;
+	int	func_ret;
 
 	func_ret = 0;
 	if (!ft_strcmp(oper, "ra"))
@@ -64,7 +64,7 @@ int	rotate_operations(char *oper, t_stack **s_a, t_stack **s_b)
 		func_ret = reverse_rotate_a(s_a);
 		func_ret = reverse_rotate_b(s_b);
 	}
-	return(func_ret);
+	return (func_ret);
 }
 
 void	exec_operation(char *oper, t_stack **s_a, t_stack **s_b)
@@ -81,4 +81,3 @@ void	exec_operation(char *oper, t_stack **s_a, t_stack **s_b)
 	if (func_ret)
 		ft_printf("%s\n", oper);
 }
-
