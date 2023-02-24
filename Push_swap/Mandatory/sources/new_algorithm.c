@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/13 18:27:15 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/17 18:46:08 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/24 11:57:38 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,27 +61,11 @@ void	new_algorithm(t_stack **s_a, t_stack **s_b)
 		cost = get_small_cust(s_b);
 		exec_small_cost(s_a, s_b, cost);
 	}
-//	ft_print_stack(a);
-//	ft_print_stack(b);
-	if (find_stack(s_a, 1) >= size_stack(s_a))	
+	get_pos(*s_a);
+	if (find_stack(s_a, 1) <= size_stack(s_a) / 2)	
 		while ((*s_a)->idx != 1)
 			exec_operation("ra", s_a, NULL);
 	else
 		while ((*s_a)->idx != 1)
 			exec_operation("rra", s_a, NULL);
-	/*
-	update_pos_in_stack(a);
-	update_pos_in_stack(b);
-	calculate_target_pos(&a, &b);
-	update_pos_in_stack(a);
-	  update_pos_in_stack(b);
-	  calculate_target_pos(&a, &b);
-	  ft_print_stack(a);
-	  ft_print_stack(b);
-	  cost = get_small_cust(&b);
-	  ft_printf("%d\n", cost);
-	  exec_small_cost(&a, &b, cost);
-	  update_pos_in_stack(a);
-	  update_pos_in_stack(b);
-	  calculate_target_pos(&a, &b);*/
 }
