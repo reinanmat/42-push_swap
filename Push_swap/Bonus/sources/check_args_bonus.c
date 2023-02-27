@@ -1,16 +1,16 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_args.c                                       :+:      :+:    :+:   */
+/*   check_args_bonus.c                                 :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:05:32 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/27 16:23:16 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/27 16:23:45 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "push_swap.h"
+#include "push_swap_bonus.h"
 
 int	has_duplicated_number(char **argv)
 {
@@ -79,10 +79,8 @@ int	check_argument(char **argv, int size)
 	i = 0;
 	while(i < size)
 	{
-		if (!argv[i])
+		if (!argv[i] || !check_all(argv[i]))
 			return (0);
-		if (!check_all(argv[i]))
-				return (0);
 		i++;
 	}
 	return (1);
@@ -93,6 +91,8 @@ int	*check_args(int argc, char **argv)
 	int	*int_array;
 
 	++argv;
+	if (argc == 1)
+		exit(0);
 	if (!check_argument(argv, argc - 1))
 		return (0);
 	if (!has_duplicated_number(argv))
@@ -100,10 +100,5 @@ int	*check_args(int argc, char **argv)
 	int_array = convert_to_int_array(argv, argc - 1);
 	if (!int_array)
 		return (0);
-	if (!check_order(int_array, argc - 1))
-	{
-		free(int_array);
-		exit(0);
-	}
 	return (int_array);
 }
