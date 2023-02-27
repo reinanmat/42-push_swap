@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 11:14:47 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/24 16:14:07 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/27 11:28:14 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,8 +35,6 @@ typedef struct s_data
 }					t_data;
 
 //utils
-int					ft_abs(int num);
-int					matrix_is(char **matrix, int (*f)(char *));
 long long			ft_atoif(char *str);
 int					*convert_to_int_array(char **matrix, int size);
 int					*normalize_numbers(int *int_array, int size);
