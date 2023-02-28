@@ -6,7 +6,7 @@
 #    By: revieira <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 11:35:54 by revieira          #+#    #+#              #
-#    Updated: 2023/02/27 16:13:37 by revieira         ###   ########.fr        #
+#    Updated: 2023/02/28 15:09:05 by revieira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ FILES = calculate_cost check_args exec_operation exec_small_cost get_positions \
 
 BONUS_FILES = main_bonus check_args_bonus utils_bonus exec_operation_bonus \
 			  push_operations_bonus rotates_operations_bonus swap_operations_bonus \
-			  stack_utils_bonus read_input_bonus
+			  stack_utils_bonus read_input_bonus nodes_opers
 
 SRCS = $(addprefix $(PATH_SRCS), $(addsuffix .c, $(FILES) ) )
 OBJS = $(addprefix $(PATH_OBJS), $(addsuffix .o, $(FILES) ) )
@@ -79,30 +79,7 @@ fclean: clean
 
 re: fclean all
 
-test3:	$(NAME)	
-	$(eval ARG = $(shell shuf -i 0-50 -n 3))
-	./push_swap $(ARG) | ./checker_linux $(ARG)
-	@echo -n "Instructions: "
-	@./push_swap $(ARG) | wc -l
-
-test5:	$(NAME)	
-	$(eval ARG = $(shell shuf -i 0-50 -n 5))
-	./push_swap $(ARG) | ./checker_linux $(ARG)
-	@echo -n "Instructions: "
-	@./push_swap $(ARG) | wc -l
-
-
-test100:	$(NAME)	
-	$(eval ARG = $(shell shuf -i 0-1000 -n 100))
-	./push_swap $(ARG) | ./checker_linux $(ARG)
-	@echo -n "Instructions: "
-	@./push_swap $(ARG) | wc -l
-
-test500:	$(NAME)	
-	$(eval ARG = $(shell shuf -i 0-2000 -n 500))
-	./push_swap $(ARG) | ./checker_linux $(ARG)
-	@echo -n "Instructions: "
-	@./push_swap $(ARG) | wc -l
+re_bonus: fclean bonus
 
 .PHONY: all clean fclean re
 
