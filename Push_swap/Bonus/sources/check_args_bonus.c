@@ -6,13 +6,13 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:05:32 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/27 16:23:45 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/28 19:47:03 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-int	has_duplicated_number(char **argv)
+static int	has_duplicated_number(char **argv)
 {
 	int	i;
 	int	j;
@@ -32,25 +32,7 @@ int	has_duplicated_number(char **argv)
 	return (1);
 }
 
-int	check_order(int *int_array, int size)
-{
-	int	save_num;
-	int	i;
-
-	if (size == 1)
-		return (0);
-	i = 0;
-	save_num = int_array[i];
-	while (++i < size)
-	{
-		if (save_num > int_array[i])
-			return (1);
-		save_num = int_array[i];
-	}
-	return (0);
-}
-
-int	check_all(char *curr_arg)
+static int	check_all(char *curr_arg)
 {
 	int	i;
 
@@ -72,12 +54,12 @@ int	check_all(char *curr_arg)
 	return (1);
 }
 
-int	check_argument(char **argv, int size)
+static int	check_argument(char **argv, int size)
 {
 	int	i;
 
 	i = 0;
-	while(i < size)
+	while (i < size)
 	{
 		if (!argv[i] || !check_all(argv[i]))
 			return (0);

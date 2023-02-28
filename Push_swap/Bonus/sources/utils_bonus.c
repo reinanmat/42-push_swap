@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:58:57 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/27 14:46:31 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/28 15:45:28 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -69,27 +69,4 @@ int	*convert_to_int_array(char **matrix, int size)
 		int_array[i] = (int)number;
 	}
 	return (int_array);
-}
-
-int	*normalize_numbers(int *int_array, int size)
-{
-	int	*indexs;
-	int	i;
-	int	j;
-
-	i = 0;
-	indexs = (int *)ft_calloc(sizeof(int), size + 1);
-	while (i < size)
-	{
-		j = 0;
-		while (j < size)
-		{
-			if (int_array[i] > int_array[j])
-				indexs[i]++;
-			j++;
-		}
-		indexs[i]++;
-		i++;
-	}
-	return (indexs);
 }

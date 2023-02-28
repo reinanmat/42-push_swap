@@ -6,24 +6,23 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/27 15:58:23 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/27 18:06:28 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/28 19:49:14 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_bonus.h"
 
-int	validate_operation(char *operation)
+int	validate_operation(char **operations, char *input)
 {
-	char	*operations;
+	int	i;
 
-	
-	operations = ft_strdup(VALIDATED_OPERS);
-	if (ft_strnstr(operations, operation, ft_strlen(operations)))
+	i = 0;
+	while (operations[i])
 	{
-		free (operations);
-		return (1);
+		if (!ft_strcmp(operations[i], input))
+			return (1);
+		i++;
 	}
-	free(operations);
 	return (0);
 }
 
@@ -33,13 +32,13 @@ int	read_operations(t_data *data)
 
 	while (1)
 	{
-		line = get_next_line(1);
+		line = get_next_line(0);
 		if (!line)
 		{
 			free(line);
 			break ;
 		}
-		if (!validate_operation(line))
+		if (!validate_operation(data->valided_operations, line))
 		{
 			free(line);
 			return (0);
@@ -47,5 +46,5 @@ int	read_operations(t_data *data)
 		add_operation(&data->operations, line);
 		free(line);
 	}
-	return(1);
+	return (1);
 }
