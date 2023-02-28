@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:05:32 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/27 16:23:16 by revieira         ###   ########.fr       */
+/*   Updated: 2023/02/28 19:44:07 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,12 +77,12 @@ int	check_argument(char **argv, int size)
 	int	i;
 
 	i = 0;
-	while(i < size)
+	while (i < size)
 	{
 		if (!argv[i])
 			return (0);
 		if (!check_all(argv[i]))
-				return (0);
+			return (0);
 		i++;
 	}
 	return (1);
