@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/16 16:14:39 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/24 17:38:56 by revieira         ###   ########.fr       */
+/*   Updated: 2023/03/01 13:59:30 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,7 +42,7 @@ void	set_pos(t_stack *stack)
 	}
 }
 
-int	find_high_idx(t_stack **stack)
+static int	find_high_idx(t_stack **stack)
 {
 	t_stack	*tmp;
 	int		high;
@@ -58,7 +58,7 @@ int	find_high_idx(t_stack **stack)
 	return (high);
 }
 
-int	get_approximate_highest_idx(t_stack **stack, int idx)
+static int	get_approximate_highest_idx(t_stack **stack, int idx)
 {
 	t_stack	*tmp;
 	int		close_high;
