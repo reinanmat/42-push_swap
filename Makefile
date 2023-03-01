@@ -6,7 +6,7 @@
 #    By: revieira <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 11:35:54 by revieira          #+#    #+#              #
-#    Updated: 2023/02/28 15:09:05 by revieira         ###   ########.fr        #
+#    Updated: 2023/03/01 13:28:20 by revieira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ FILES = calculate_cost check_args exec_operation exec_small_cost get_positions \
 
 BONUS_FILES = main_bonus check_args_bonus utils_bonus exec_operation_bonus \
 			  push_operations_bonus rotates_operations_bonus swap_operations_bonus \
-			  stack_utils_bonus read_input_bonus nodes_opers
+			  stack_utils_bonus read_input_bonus nodes_opers_bonus
 
 SRCS = $(addprefix $(PATH_SRCS), $(addsuffix .c, $(FILES) ) )
 OBJS = $(addprefix $(PATH_OBJS), $(addsuffix .o, $(FILES) ) )
