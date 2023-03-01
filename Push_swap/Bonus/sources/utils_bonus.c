@@ -6,7 +6,7 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/19 13:58:57 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/28 15:45:28 by revieira         ###   ########.fr       */
+/*   Updated: 2023/03/01 12:59:47 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,8 @@ int	ft_issort(t_stack **stack)
 	t_stack	*tmp;
 	int		save_num;
 
+	if (*stack == NULL)
+		return (-1);
 	tmp = (*stack);
 	save_num = tmp->number;
 	while (tmp->next)
