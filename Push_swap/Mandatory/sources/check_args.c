@@ -6,13 +6,13 @@
 /*   By: revieira <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/18 12:05:32 by revieira          #+#    #+#             */
-/*   Updated: 2023/02/28 19:44:07 by revieira         ###   ########.fr       */
+/*   Updated: 2023/03/01 11:26:35 by revieira         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	has_duplicated_number(char **argv)
+static int	has_duplicated_number(char **argv)
 {
 	int	i;
 	int	j;
@@ -32,7 +32,7 @@ int	has_duplicated_number(char **argv)
 	return (1);
 }
 
-int	check_order(int *int_array, int size)
+static int	check_order(int *int_array, int size)
 {
 	int	save_num;
 	int	i;
@@ -50,7 +50,7 @@ int	check_order(int *int_array, int size)
 	return (0);
 }
 
-int	check_all(char *curr_arg)
+static int	check_all(char *curr_arg)
 {
 	int	i;
 
@@ -72,7 +72,7 @@ int	check_all(char *curr_arg)
 	return (1);
 }
 
-int	check_argument(char **argv, int size)
+static int	checks_each_argument(char **argv, int size)
 {
 	int	i;
 
@@ -93,7 +93,7 @@ int	*check_args(int argc, char **argv)
 	int	*int_array;
 
 	++argv;
-	if (!check_argument(argv, argc - 1))
+	if (!checks_each_argument(argv, argc - 1))
 		return (0);
 	if (!has_duplicated_number(argv))
 		return (0);
