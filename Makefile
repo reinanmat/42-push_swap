@@ -6,20 +6,20 @@
 #    By: revieira <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 11:35:54 by revieira          #+#    #+#              #
-#    Updated: 2023/03/01 13:28:20 by revieira         ###   ########.fr        #
+#    Updated: 2023/03/02 19:18:34 by revieira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 BONUS = checker
 
-PATH_INCS  = ./Push_swap/Mandatory/includes/
-PATH_SRCS  = ./Push_swap/Mandatory/sources/
-PATH_OBJS  = ./Push_swap/Mandatory/objects/
+PATH_INCS  = ./Push-swap/Mandatory/includes/
+PATH_SRCS  = ./Push-swap/Mandatory/sources/
+PATH_OBJS  = ./Push-swap/Mandatory/objects/
 
-PATH_BONUS_INCS  = ./Push_swap/Bonus/includes/
-PATH_BONUS_SRCS  = ./Push_swap/Bonus/sources/
-PATH_BONUS_OBJS  = ./Push_swap/Bonus/objects/
+PATH_BONUS_INCS  = ./Push-swap/Bonus/includes/
+PATH_BONUS_SRCS  = ./Push-swap/Bonus/sources/
+PATH_BONUS_OBJS  = ./Push-swap/Bonus/objects/
 
 PATH_LIBFT = ./Libft/
 
@@ -81,5 +81,5 @@ re: fclean all
 
 re_bonus: fclean bonus
 
-.PHONY: all clean fclean re
+.PHONY: all clean fclean re bonus re_bonus
 
