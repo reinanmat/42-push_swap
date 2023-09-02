@@ -3,7 +3,7 @@
 i=0
 while [[ i -lt 120 ]]; do
     ARG=$(shuf -i 0-5 -n 5)
-    val=$(./push_swap $ARG | wc -l)
+    val=$(../push_swap $ARG | wc -l)
     if [[ val -gt 12 ]]; then
         echo "DANGER"
         printf "program failed with params\n${ARG}\n" > failed.txt

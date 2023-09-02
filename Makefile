@@ -6,22 +6,22 @@
 #    By: revieira <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/01/18 11:35:54 by revieira          #+#    #+#              #
-#    Updated: 2023/03/02 19:18:34 by revieira         ###   ########.fr        #
+#    Updated: 2023/09/01 23:15:45 by revieira         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = push_swap
 BONUS = checker
 
-PATH_INCS  = ./Push-swap/Mandatory/includes/
-PATH_SRCS  = ./Push-swap/Mandatory/sources/
-PATH_OBJS  = ./Push-swap/Mandatory/objects/
+PATH_INCS  = ./includes/
+PATH_SRCS  = ./sources/
+PATH_OBJS  = ./objects/
 
-PATH_BONUS_INCS  = ./Push-swap/Bonus/includes/
-PATH_BONUS_SRCS  = ./Push-swap/Bonus/sources/
-PATH_BONUS_OBJS  = ./Push-swap/Bonus/objects/
+PATH_BONUS_INCS  = ./bonus/includes/
+PATH_BONUS_SRCS  = ./bonus/sources/
+PATH_BONUS_OBJS  = ./objects/bonus/
 
-PATH_LIBFT = ./Libft/
+PATH_LIBFT = ./libft/
 
 FILES = calculate_cost check_args exec_operation exec_small_cost get_positions \
 		main push_operations rotates_operations swap_operations sort sort_big  \
